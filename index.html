@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Simply Lovely</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+
+            <!-- Register -->
+            <div class="register-box hidden" id="register_box">
+                <h1>Register</h1>
+                <input type="text" placeholder="username">
+                <input type="email" placeholder="email">
+                <input type="password" placeholder="password">
+                <input type="password" placeholder="confirm password">
+                <button>Submit</button>
+            </div>
+
+            <!-- Login -->
+            <div class="login-box" id="login_box">
+                <h1>Login</h1>
+                <input type="text" placeholder="username">
+                <input type="password" placeholder="password">
+                <button id="goDashboard">Submit</button>
+            </div>
+
+        </div>
+
+        <!-- Left Box -->
+        <div class="con-box left">
+            <h2> F1 <span>Merchandise</span></h2>
+            <p>Come <span>and see</span></p>
+            <img src="images/F1-2018-Logo.webp" alt="">
+            <button id="login">Login</button>
+        </div>
+
+        <!-- Right Box -->
+        <div class="con-box right">
+            <h2>F1<span>Merchandise</span></h2>
+            <p>Come <span>and see</span></p>
+            <img src="images/F1-2018-Logo.webp" alt="">
+            <p>Don't have an account?</p>
+            <button id="register">Go to Register</button>
+        </div>
+    </div>
+
+    <script>
+        let loginBtn = document.getElementById('login');
+        let registerBtn = document.getElementById('register');
+        let formBox = document.getElementsByClassName('form-box')[0];
+
+        let login_box = document.getElementById('login_box');
+        let register_box = document.getElementById('register_box');
+
+        // Button: Switch to Register
+        registerBtn.addEventListener('click', () => {
+            formBox.style.transform = 'translateX(80%)';
+            login_box.classList.add('hidden');
+            register_box.classList.remove('hidden');
+        });
+
+        // Button: Switch to Login
+        loginBtn.addEventListener('click', () => {
+            formBox.style.transform = 'translateX(0%)';
+            register_box.classList.add('hidden');
+            login_box.classList.remove('hidden');
+        });
+
+        // Button: Go to Dashboard
+        document.getElementById("goDashboard").addEventListener("click", () => {
+            window.location.href = "dashboard.html"; 
+        });
+    </script>
+
+</body>
+</html>

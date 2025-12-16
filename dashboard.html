@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="engine1/jquery.js"></script>
+
+    <style>
+        /* Dashboard content styling */
+        .dashboard-content {
+           padding: 30px;
+           color: white;
+           max-width: 900px;  		   
+           margin: 0 auto;        
+           text-align: center;
+        }
+
+        .intro {
+		    font-size: 30px; /* besar tajuk utama dlm petak biru */
+            font-weight: bold;
+            background: #0072c6;
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+		
+		.intro p {
+            font-size: 20px; /* besar tajuk kedua dlm petak biru */
+            white-space: normal;  
+            word-wrap: break-word;
+        }
+
+        .time {
+            margin: 20px 0;
+            font-size: 36px; /* besar tulisan masa */
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chart-container {
+            width: 80%;
+            max-width: 1000px; /* besar kotak putih chart */
+            margin: 40px auto;
+            background: white;
+            padding: 80px; /* besar kotak atau size chart */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="home">
+        <div class="logo">
+            <h1>M-Simply Lovely</h1>
+        </div>
+
+        <div class="home-con">
+
+            <!-- SIDEBAR NAVIGATION (BETUL DAN LENGKAP) -->
+            <div class="hc-nav">
+
+                <a href="dashboard.html">
+                    <img src="images/redbull.png" alt="">
+                    <span>Homepage</span>
+                </a>
+
+                <a href="Product F1.html">
+                    <img src="images/ferrari.png" alt="">
+                    <span>Product</span>
+                </a>
+
+                <a href="Order.html">
+                    <img src="images/mercedes.png" alt="">
+                    <span>Order</span>
+                </a>
+
+                <a href="Customer.html">
+                    <img src="images/mclaren.png" alt="">
+                    <span>Customer</span>
+                </a>
+
+                <a href="Contact Me.html">
+                    <img src="images/william.png" alt="">
+                    <span>Contact Us</span>
+                </a>
+
+            </div>
+
+            <!-- MAIN DASHBOARD CONTENT -->
+            <div class="dashboard-content">
+
+                <div class="intro">
+                    <h1>Welcome to M-Simply Lovely Dashboard</h1>
+                    <p>Track your product sales and see which items are most popular!</p>
+                </div>
+
+                <div class="time" id="timeDisplay"></div>
+
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Show current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('timeDisplay').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Chart.js Data
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red Bull Jacket', 'Red Bull Sweatshirt', 'Red Bull Shirt', 'Red Bull Lego', 'Red Bull Cap'],
+                datasets: [{
+                    label: 'Units Sold',
+                    data: [144, 70, 110, 120, 55],
+                    backgroundColor: [
+                        'rgba(0, 102, 204, 0.7)',
+                        'rgba(255, 0, 0, 0.7)',
+                        'rgba(0, 0, 0, 0.7)',
+                        'rgba(255, 102, 0, 0.7)',
+                        'rgba(128, 128, 128, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 102, 204, 1)',
+                        'rgba(255, 0, 0, 1)',
+                        'rgba(0, 0, 0, 1)',
+                        'rgba(255, 102, 0, 1)',
+                        'rgba(128, 128, 128, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { 
+                    display: true,
+                    text: 'Red Bull Merchandise Sales 2025',
+                    font: { size: 30, weight: 'bold' } /* besar tulisan dlm chart sini */
+                    }
+                },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    </script>
+
+    <div class="footer">
+        <p>© 2025 SIMPLY LOVELY. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

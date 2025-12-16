@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title></title>
+          <link rel="stylesheet" href="style.css"/> 
+     </head>
+    <body>
+            <div class="header"> 
+                   <div class="logo">
+                              <h3>M-Simply Lovely</h3>
+                    </div>
+                       <div class="nav">
+                       <a  href="dashboard.html">Homepage</a>
+                       <a  href="Product F1.html">Product</a>
+                       <a  href="Order.html">Order</a>
+                       <a  href="Customer.html">Customer</a>
+                       <a  href="Contact Me.html">Contact Us</a>
+                        </div>
+                    </div>
+                    <h2>Customer Records</h2>
+
+
+                    <div class="container">
+                         
+                         <div class="customer-card">
+                         <img src="images/neymar.jpg" alt="customer">
+                         <div class="cust-info">
+                         <strong>Neymar Junior</strong><br>
+                         <small>Phone: 012-3456789</small><br>
+                         <div class="product">Product: Red Bull Jacket (Qty 1)</div>
+                         </div>
+                         <select class="status delivered">
+                         <option>Delivered</option>
+                         <option>Pending</option>
+                         <option>Failed</option>
+                         </select>
+                    </div>
+
+                    <div class="customer-card">
+                         <img src="images/lucas.jpeg" alt="customer">
+                         <div class="cust-info">
+                         <strong>Lucas Paqueta</strong><br>
+                         <small>Phone: 017-5566778</small><br>
+                         <div class="product">Product: Red Bull Cap (Qty 2)</div>
+                         </div>
+                         <select class="status delivered">
+                         <option>Delivered</option>
+                         <option>Pending</option>
+                         <option>Failed</option>
+                         </select>
+                    </div>
+
+                    <div class="customer-card">
+                         <img src="images/son.jpg" alt="customer">
+                         <div class="cust-info">
+                         <strong>Son Heung-min</strong><br>
+                         <small>Phone: 011-8899001</small><br>
+                         <div class="product">Product: Red Bull Shirt (Qty 1)</div>
+                         </div>
+                         <select class="status delivered">
+                         <option>Delivered</option>
+                         <option>Pending</option>
+                         <option>Failed</option>
+                         </select>
+                    </div>
+                    </div>
+               </div>
+                    <div class="footer">
+                        <p> © 2025 SIMPLY LOVELY .  All Rights Reserved</p>
+
+                        <script>
+// Automatically change badge color when user selects a new status
+const selects = document.querySelectorAll('select.status');
+
+
+selects.forEach(sel => {
+sel.addEventListener('change', function() {
+this.classList.remove('delivered', 'pending', 'failed');
+this.classList.add(this.value.toLowerCase());
+});
+});
+</script>
+    </body>
+</html>
